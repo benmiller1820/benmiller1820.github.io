@@ -1,0 +1,22 @@
+---
+// Placeholder About page so header links resolve. Replaced in step 7.
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About">
+  <section class="container placeholder">
+    <h1>Hi, I'm Ben.</h1>
+    <p>About page coming soon.</p>
+  </section>
+</BaseLayout>
+
+<style>
+  .placeholder {
+    display: grid;
+    gap: 24px;
+    padding-block: 64px;
+  }
+  h1 {
+    font-size: clamp(44px, 7vw, 76px);
+  }
+</style>

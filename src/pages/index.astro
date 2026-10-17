@@ -1,0 +1,37 @@
+---
+// Placeholder home page for step 1. Replaced by the real home page in step 4.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../site.config';
+---
+
+<BaseLayout>
+  <section class="container placeholder">
+    <p class="eyebrow eyebrow--accent">Under construction</p>
+    <h1>AI is making products more powerful and more complicated. <em>I make sure people can still use them.</em></h1>
+    <p>This placeholder checks the design tokens, fonts, layout, header and footer.</p>
+    <div class="placeholder__buttons">
+      <a class="btn btn--primary" href={`mailto:${site.email}`}>Email me</a>
+      <a class="btn btn--secondary" href={site.resume}>Download resume ↓</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .placeholder {
+    display: grid;
+    gap: 24px;
+    padding-block: 64px;
+  }
+  h1 {
+    max-width: 16ch;
+    font-size: clamp(44px, 7vw, 76px);
+  }
+  h1 em {
+    color: var(--accent);
+  }
+  .placeholder__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+</style>

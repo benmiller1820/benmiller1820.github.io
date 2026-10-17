@@ -1,0 +1,76 @@
+---
+import { site } from '../site.config';
+
+const isAbout = Astro.url.pathname.startsWith('/about');
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__name" href="/">{site.name}</a>
+    <nav aria-label="Main">
+      <ul class="site-nav">
+        <li><a href="/">Work</a></li>
+        <li><a href="/about/" aria-current={isAbout ? 'page' : undefined}>About</a></li>
+        <li><a href={site.resume}>Resume</a></li>
+        <li><a class="site-nav__cta" href={`mailto:${site.email}`}>Get in touch</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 32px;
+    padding-block: 20px;
+  }
+  .site-header__name {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--font-serif);
+    font-size: 30px;
+    line-height: 1;
+    color: var(--text);
+    text-decoration: none;
+    /* Instrument Serif has no bold weight; a hairline stroke thickens it. */
+    -webkit-text-stroke: 0.5px currentColor;
+  }
+  .site-header__name:hover {
+    color: var(--text);
+  }
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 28px;
+    list-style: none;
+    padding: 0;
+  }
+  .site-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .site-nav a:hover,
+  .site-nav a[aria-current='page'] {
+    color: var(--text);
+  }
+  .site-nav .site-nav__cta {
+    color: var(--accent);
+  }
+  .site-nav .site-nav__cta:hover {
+    color: var(--accent-hover);
+  }
+  @media (max-width: 480px) {
+    .site-nav {
+      gap: 0 20px;
+    }
+  }
+</style>
