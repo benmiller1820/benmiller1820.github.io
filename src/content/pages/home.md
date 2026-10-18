@@ -1,7 +1,7 @@
 ---
 headline: "AI is making products more powerful and more complicated."
 headlineAccent: "I make sure people can still use them."
-resumeLabel: "Download resume ↓"
+resumeLabel: "Resume ↗"
 linkedinLabel: "LinkedIn ↗"
 workHeading: "Selected work"
 workYear: "2026"

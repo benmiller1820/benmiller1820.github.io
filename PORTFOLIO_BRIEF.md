@@ -60,7 +60,7 @@ Dark editorial style. Use these as CSS custom properties.
 ## Page layouts
 
 ### Home
-1. **Hero:** Large Instrument Serif headline (~76px desktop, scales down on mobile). The second sentence is italic and accent-colored. Below it, a row with the bio paragraph (left, muted) and two stacked outline pill buttons (right): "Download resume ↓" and "LinkedIn ↗".
+1. **Hero:** Large Instrument Serif headline (~76px desktop, scales down on mobile). The second sentence is italic and accent-colored. Below it, a row with the bio paragraph (left, muted) and two stacked outline pill buttons (right): "Resume ↗" and "LinkedIn ↗". (Was "Download resume ↓"; changed after launch because resume links open the PDF in a new tab rather than downloading it. Links that leave the site open in a new tab.)
 2. **Selected work:** Small uppercase header row ("Selected work" left, "2026" right) with a bottom border. Then one row per case study, separated by borders. Each row: large accent number (01, 02) in Instrument Serif, then title (48px serif), one-line summary, and a small uppercase tag line, with a screenshot thumbnail on the right. The whole row links to the case study. Rows are generated from the content collection, ordered by an `order` field.
 3. Footer.
 
@@ -77,7 +77,7 @@ Dark editorial style. Use these as CSS custom properties.
 ### About
 1. **Intro:** Photo on the left (placeholder until Ben adds one), "Hi, I'm Ben." in large serif on the right, followed by an intro paragraph.
 2. Sections in the same left-heading / right-content layout: **How I got here**, **What I believe** (opens with a large serif pull quote), **Outside of work** (three small bordered cards).
-3. **Closing CTA:** "Hiring for a product role? I'd love to talk." with a primary "Email me" button and an outline "Download resume ↓" button.
+3. **Closing CTA:** "Hiring for a product role? I'd love to talk." with a primary "Email me" button and an outline "Resume ↗" button.
 4. Footer.
 
 ## Content

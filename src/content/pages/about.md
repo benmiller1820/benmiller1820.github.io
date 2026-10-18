@@ -14,7 +14,7 @@ cards:
 closing:
   heading: "Hiring for a product role? I'd love to talk."
   emailLabel: "Email me"
-  resumeLabel: "Download resume ↓"
+  resumeLabel: "Resume ↗"
 ---
 
 ## How I got here

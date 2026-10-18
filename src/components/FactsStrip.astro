@@ -29,7 +29,17 @@ const linkText = href ? `${new URL(href).hostname.replace(/^www\./, '')} ↗` : 
   </div>
   <div class="facts__cell">
     <dt class="eyebrow">Try it</dt>
-    <dd>{href ? <a href={href} rel="noopener">{linkText}</a> : linkText}</dd>
+    <dd>
+      {
+        href ? (
+          <a href={href} target="_blank" rel="noopener">
+            {linkText}<span class="sr-only"> (opens in new tab)</span>
+          </a>
+        ) : (
+          linkText
+        )
+      }
+    </dd>
   </div>
 </dl>
 

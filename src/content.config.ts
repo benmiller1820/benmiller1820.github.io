@@ -24,7 +24,7 @@ const home = defineCollection({
     title: text.optional(),
     headline: text,
     headlineAccent: text,
-    resumeLabel: text.default('Download resume ↓'),
+    resumeLabel: text.default('Resume ↗'),
     linkedinLabel: text.default('LinkedIn ↗'),
     workHeading: text.default('Selected work'),
     workYear: text,
@@ -46,7 +46,7 @@ const about = defineCollection({
       closing: z.object({
         heading: text,
         emailLabel: text.default('Email me'),
-        resumeLabel: text.default('Download resume ↓'),
+        resumeLabel: text.default('Resume ↗'),
       }),
     }),
 });
