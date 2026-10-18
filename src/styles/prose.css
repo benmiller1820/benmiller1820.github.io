@@ -1,0 +1,154 @@
+/* Markdown body styles: two-column ## sections (case studies, About),
+   prose, tables and the key decision callout. Markup comes from
+   src/lib/markdown-sections.ts. */
+
+/* ---------- Sections ---------- */
+.md-section {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 720px);
+  gap: 24px 64px;
+  padding-block: 56px;
+  border-top: 1px solid var(--border);
+}
+.md-section > h2 {
+  font-size: 36px;
+}
+
+/* ---------- Prose ---------- */
+.md-section__body > * + * {
+  margin-top: 1.1em;
+}
+.md-section__body strong {
+  font-weight: 600;
+  color: var(--text);
+}
+.md-section__body ul,
+.md-section__body ol {
+  padding-left: 1.2em;
+}
+.md-section__body li + li {
+  margin-top: 0.5em;
+}
+.md-section__body li::marker {
+  color: var(--text-subtle);
+}
+.md-section__body h3 {
+  margin-top: 1.6em;
+  font-size: 26px;
+}
+.md-section__body blockquote {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.15;
+  color: var(--text);
+}
+.md-section__body img {
+  border-radius: var(--radius-img);
+  background: var(--surface);
+}
+
+/* ---------- Tables ---------- */
+.table-hint {
+  display: none;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--text-subtle);
+}
+@media (max-width: 640px) {
+  .table-hint {
+    display: block;
+  }
+}
+.table-scroll {
+  overflow-x: auto;
+  border-radius: 4px;
+}
+.table-scroll table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.45;
+}
+.table-scroll th,
+.table-scroll td {
+  padding: 14px 16px 14px 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+.table-scroll thead th {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  border-bottom-color: var(--border-strong);
+}
+.table-scroll tbody th {
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ---------- Key decision callout ---------- */
+.decision {
+  margin-block: 24px 56px;
+  padding: 48px;
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+}
+.decision__headline {
+  max-width: 18em;
+  margin-top: 16px;
+  font-size: clamp(36px, 5vw, 56px);
+  scroll-margin-top: 24px;
+}
+.decision__body {
+  max-width: 720px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+.decision .table-wrap {
+  margin-top: 40px;
+}
+.decision__table td:last-child {
+  color: var(--text);
+}
+.decision__points {
+  max-width: 720px;
+  margin-top: 32px;
+  padding-left: 1.2em;
+}
+.decision__points li + li {
+  margin-top: 0.5em;
+}
+.decision__points li::marker {
+  color: var(--accent);
+}
+.decision__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 48px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.decision__pair dd {
+  margin: 8px 0 0;
+}
+
+@media (max-width: 860px) {
+  .md-section {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: 40px;
+  }
+  .md-section > h2 {
+    font-size: 32px;
+  }
+  .decision {
+    padding: 28px 20px;
+  }
+  .decision__pair {
+    grid-template-columns: 1fr;
+  }
+}
