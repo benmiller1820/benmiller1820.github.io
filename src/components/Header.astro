@@ -11,7 +11,7 @@ const isAbout = Astro.url.pathname.startsWith('/about');
       <ul class="site-nav">
         <li><a href="/#work">Work</a></li>
         <li><a href="/about/" aria-current={isAbout ? 'page' : undefined}>About</a></li>
-        <li><a href={site.resume}>Resume</a></li>
+        <li><a href={site.resume} target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in new tab)</span></a></li>
         <li><a class="site-nav__cta" href={`mailto:${site.email}`}>Get in touch</a></li>
       </ul>
     </nav>

@@ -52,7 +52,7 @@ const { title, heading, intro, photo, cardsHeading, cards, closing } = about.dat
       <h2 id="closing-heading">{closing.heading}</h2>
       <div class="closing__actions">
         <a class="btn btn--primary" href={`mailto:${site.email}`}>{closing.emailLabel}</a>
-        <a class="btn btn--secondary" href={site.resume}>{closing.resumeLabel}</a>
+        <a class="btn btn--secondary" href={site.resume} target="_blank" rel="noopener">{closing.resumeLabel}<span class="sr-only"> (opens in new tab)</span></a>
       </div>
     </div>
   </section>

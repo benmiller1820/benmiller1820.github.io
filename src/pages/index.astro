@@ -18,7 +18,7 @@ const { headline, headlineAccent, resumeLabel, linkedinLabel, workHeading, workY
     <div class="hero__row">
       <div class="hero__bio"><Bio /></div>
       <div class="hero__actions">
-        <a class="btn btn--secondary" href={site.resume}>{resumeLabel}</a>
+        <a class="btn btn--secondary" href={site.resume} target="_blank" rel="noopener">{resumeLabel}<span class="sr-only"> (opens in new tab)</span></a>
         <a class="btn btn--secondary" href={site.linkedin}>{linkedinLabel}</a>
       </div>
     </div>
