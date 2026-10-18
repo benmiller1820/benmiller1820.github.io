@@ -1,0 +1,53 @@
+---
+// A responsive, optimized image, or a labeled --surface placeholder box
+// when no image has been added yet (the alt text is the label).
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  picture: { src?: ImageMetadata; alt: string };
+  widths: number[];
+  sizes: string;
+  aspect?: string;
+  eager?: boolean;
+  class?: string;
+}
+
+const { picture, widths, sizes, aspect = '4 / 3', eager = false, class: className } = Astro.props;
+---
+
+{
+  picture.src ? (
+    <Image
+      class:list={['media', 'picture', className]}
+      src={picture.src}
+      alt={picture.alt}
+      widths={widths}
+      sizes={sizes}
+      loading={eager ? 'eager' : 'lazy'}
+      fetchpriority={eager ? 'high' : undefined}
+      style={`aspect-ratio: ${aspect}`}
+    />
+  ) : (
+    <div class:list={['media', 'picture', 'picture--placeholder', className]} role="img" aria-label={picture.alt} style={`aspect-ratio: ${aspect}`}>
+      <span aria-hidden="true">{picture.alt}</span>
+    </div>
+  )
+}
+
+<style>
+  .picture {
+    width: 100%;
+    object-fit: cover;
+  }
+  .picture--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border: 1px solid var(--border);
+    color: var(--text-subtle);
+    font-size: 14px;
+    text-align: center;
+  }
+</style>

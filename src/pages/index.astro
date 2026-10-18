@@ -1,66 +1,90 @@
 ---
-// Placeholder home page: reads from the content collections to prove they
-// work. Replaced by the real home page layout in step 4.
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import WorkRow from '../components/WorkRow.astro';
 import { site } from '../lib/site';
-import { caseNumber, getCaseStudies } from '../lib/work';
+import { getCaseStudies } from '../lib/work';
 
 const home = await getEntry('home', 'home');
 if (!home) throw new Error('Missing src/content/pages/home.md');
 const { Content: Bio } = await render(home);
 const work = await getCaseStudies();
+const { headline, headlineAccent, resumeLabel, linkedinLabel, workHeading, workYear } = home.data;
 ---
 
-<BaseLayout>
-  <section class="container placeholder">
-    <p class="eyebrow eyebrow--accent">Under construction</p>
-    <h1>{home.data.headline} <em>{home.data.headlineAccent}</em></h1>
-    <div class="bio"><Bio /></div>
-    <div class="placeholder__buttons">
-      <a class="btn btn--primary" href={`mailto:${site.email}`}>Email me</a>
-      <a class="btn btn--secondary" href={site.resume}>{home.data.resumeLabel}</a>
+<BaseLayout title={home.data.title}>
+  <section class="container hero">
+    <h1 class="hero__headline">{headline} <em>{headlineAccent}</em></h1>
+    <div class="hero__row">
+      <div class="hero__bio"><Bio /></div>
+      <div class="hero__actions">
+        <a class="btn btn--secondary" href={site.resume}>{resumeLabel}</a>
+        <a class="btn btn--secondary" href={site.linkedin}>{linkedinLabel}</a>
+      </div>
     </div>
-    <h2 class="eyebrow">{home.data.workHeading} · {home.data.workYear}</h2>
-    <ol class="work-list">
-      {work.map((entry) => (
-        <li>
-          <span class="work-list__num">{caseNumber(entry.data.order)}</span> {entry.data.title}: {entry.data.summary}
-        </li>
-      ))}
+  </section>
+
+  <section class="container work" id="work" aria-labelledby="work-heading">
+    <div class="work__header">
+      <h2 class="eyebrow" id="work-heading">{workHeading}</h2>
+      <p class="eyebrow">{workYear}</p>
+    </div>
+    <ol class="work__list">
+      {work.map((entry) => <WorkRow entry={entry} />)}
     </ol>
   </section>
 </BaseLayout>
 
 <style>
-  .placeholder {
-    display: grid;
-    gap: 24px;
-    padding-block: 64px;
+  .hero {
+    padding-block: 72px 112px;
   }
-  h1 {
-    max-width: 16ch;
-    font-size: clamp(44px, 7vw, 76px);
+  .hero__headline {
+    max-width: 19em;
+    font-size: clamp(44px, 6.4vw, 76px);
+    line-height: 1.05;
   }
-  h1 em {
+  .hero__headline em {
     color: var(--accent);
   }
-  .bio {
-    max-width: 60ch;
-  }
-  .placeholder__buttons {
+  .hero__row {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px 64px;
+    margin-top: 48px;
+  }
+  .hero__bio {
+    flex: 1 1 420px;
+    max-width: 620px;
+    font-size: 18px;
+  }
+  .hero__actions {
+    display: flex;
+    flex-direction: column;
     gap: 12px;
   }
-  .work-list {
-    display: grid;
-    gap: 12px;
+  .work {
+    scroll-margin-top: 24px;
+  }
+  .work__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .work__list {
     padding: 0;
     list-style: none;
   }
-  .work-list__num {
-    font-family: var(--font-serif);
-    color: var(--accent);
+  @media (max-width: 760px) {
+    .hero {
+      padding-block: 48px 72px;
+    }
+    .hero__bio {
+      font-size: 17px;
+    }
   }
 </style>

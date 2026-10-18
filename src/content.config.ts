@@ -1,29 +1,33 @@
 // Content collections: the shape of every Markdown file's frontmatter.
 // If a required field is missing or the wrong type, `npm run build` fails
 // and names the file and field, so mistakes never reach the live site.
-import { defineCollection } from 'astro:content';
+import { defineCollection, type SchemaContext } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { smartQuotes } from './lib/typography';
+
+// Display text: straight quotes become curly, like Markdown body text.
+const text = z.string().transform(smartQuotes);
 
 // A picture, or a labeled placeholder box until a real image is added.
 // `alt` doubles as the placeholder label, e.g. "[job submission]".
-const picture = (image: () => z.ZodType) =>
+const picture = (image: SchemaContext['image']) =>
   z.object({
     src: image().optional(),
-    alt: z.string(),
+    alt: text,
   });
 
 // Home page: src/content/pages/home.md. The Markdown body is the bio.
 const home = defineCollection({
   loader: glob({ pattern: 'home.md', base: './src/content/pages' }),
   schema: z.object({
-    title: z.string().optional(),
-    headline: z.string(),
-    headlineAccent: z.string(),
-    resumeLabel: z.string().default('Download resume ↓'),
-    linkedinLabel: z.string().default('LinkedIn ↗'),
-    workHeading: z.string().default('Selected work'),
-    workYear: z.string(),
+    title: text.optional(),
+    headline: text,
+    headlineAccent: text,
+    resumeLabel: text.default('Download resume ↓'),
+    linkedinLabel: text.default('LinkedIn ↗'),
+    workHeading: text.default('Selected work'),
+    workYear: text,
   }),
 });
 
@@ -33,16 +37,16 @@ const about = defineCollection({
   loader: glob({ pattern: 'about.md', base: './src/content/pages' }),
   schema: ({ image }) =>
     z.object({
-      title: z.string().default('About'),
-      heading: z.string(),
-      intro: z.string(),
+      title: text.default('About'),
+      heading: text,
+      intro: text,
       photo: picture(image),
-      cardsHeading: z.string(),
-      cards: z.array(z.object({ title: z.string(), text: z.string() })).min(1),
+      cardsHeading: text,
+      cards: z.array(z.object({ title: text, text: text })).min(1),
       closing: z.object({
-        heading: z.string(),
-        emailLabel: z.string().default('Email me'),
-        resumeLabel: z.string().default('Download resume ↓'),
+        heading: text,
+        emailLabel: text.default('Email me'),
+        resumeLabel: text.default('Download resume ↓'),
       }),
     }),
 });
@@ -55,28 +59,28 @@ const work = defineCollection({
     z.object({
       order: z.number().int().positive(),
       draft: z.boolean().default(false),
-      title: z.string(),
-      tag: z.string(),
-      summary: z.string(),
-      hook: z.string(),
-      intro: z.string(),
-      role: z.string(),
-      timeline: z.string(),
-      status: z.string(),
+      title: text,
+      tag: text,
+      summary: text,
+      hook: text,
+      intro: text,
+      role: text,
+      timeline: text,
+      status: text,
       // A full https:// link becomes clickable; anything else shows as text.
       liveUrl: z.string(),
       thumbnail: picture(image),
       hero: picture(image),
       screenshots: z.array(picture(image)).max(2).default([]),
       decision: z.object({
-        eyebrow: z.string().default('Key decision'),
-        headline: z.string(),
-        body: z.string(),
+        eyebrow: text.default('Key decision'),
+        headline: text,
+        body: text,
         // Comparison table: first row is the column headers.
-        table: z.array(z.array(z.string())).min(2).optional(),
-        points: z.array(z.string()).optional(),
-        why: z.string().optional(),
-        tradeoff: z.string().optional(),
+        table: z.array(z.array(text)).min(2).optional(),
+        points: z.array(text).optional(),
+        why: text.optional(),
+        tradeoff: text.optional(),
       }),
     }),
 });

@@ -9,7 +9,7 @@ const isAbout = Astro.url.pathname.startsWith('/about');
     <a class="site-header__name" href="/">{site.name}</a>
     <nav aria-label="Main">
       <ul class="site-nav">
-        <li><a href="/">Work</a></li>
+        <li><a href="/#work">Work</a></li>
         <li><a href="/about/" aria-current={isAbout ? 'page' : undefined}>About</a></li>
         <li><a href={site.resume}>Resume</a></li>
         <li><a class="site-nav__cta" href={`mailto:${site.email}`}>Get in touch</a></li>

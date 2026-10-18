@@ -1,0 +1,97 @@
+---
+// One "Selected work" row on the home page. The title link stretches over
+// the whole row, so the row is clickable but announces just the title.
+import Picture from './Picture.astro';
+import { caseNumber, type CaseStudy } from '../lib/work';
+
+interface Props {
+  entry: CaseStudy;
+}
+
+const { entry } = Astro.props;
+const { order, title, summary, tag, thumbnail } = entry.data;
+---
+
+<li class="work-row">
+  <span class="work-row__num" aria-hidden="true">{caseNumber(order)}</span>
+  <div class="work-row__body">
+    <h3 class="work-row__title"><a href={`/work/${entry.id}/`}>{title}</a></h3>
+    <p class="work-row__summary">{summary}</p>
+    <p class="eyebrow work-row__tag">{tag}</p>
+  </div>
+  <Picture
+    class="work-row__thumb"
+    picture={thumbnail}
+    widths={[400, 800]}
+    sizes="(max-width: 760px) calc(100vw - 48px), 400px"
+  />
+</li>
+
+<style>
+  .work-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) minmax(0, 400px);
+    gap: 32px;
+    align-items: start;
+    padding-block: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .work-row__num {
+    padding-top: 6px;
+    font-family: var(--font-serif);
+    font-size: 40px;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .work-row__title {
+    font-size: 48px;
+  }
+  .work-row__title a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  /* Stretch the title link over the whole row. */
+  .work-row__title a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .work-row__title a:focus-visible {
+    outline: none;
+  }
+  .work-row:has(a:focus-visible) {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+  .work-row:hover .work-row__title a {
+    color: var(--accent);
+  }
+  .work-row__summary {
+    max-width: 52ch;
+    margin-top: 12px;
+  }
+  .work-row__tag {
+    margin-top: 16px;
+  }
+
+  @media (max-width: 760px) {
+    .work-row {
+      grid-template-columns: 40px minmax(0, 1fr);
+      gap: 20px 16px;
+      padding-block: 32px;
+    }
+    .work-row__num {
+      padding-top: 5px;
+      font-size: 28px;
+    }
+    .work-row__title {
+      font-size: 36px;
+    }
+    .work-row :global(.work-row__thumb) {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

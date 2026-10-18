@@ -1,0 +1,39 @@
+---
+// Stub case study page so home page links resolve. Replaced by the full
+// case study template in step 5.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { caseEyebrow, getCaseStudies, type CaseStudy } from '../../lib/work';
+
+export async function getStaticPaths() {
+  const all = await getCaseStudies();
+  return all.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props as { entry: CaseStudy };
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.summary}>
+  <section class="container stub">
+    <a href="/#work">← All work</a>
+    <p class="eyebrow">{caseEyebrow(entry)}</p>
+    <h1>{entry.data.title}</h1>
+    <p>Case study coming soon.</p>
+  </section>
+</BaseLayout>
+
+<style>
+  .stub {
+    display: grid;
+    justify-items: start;
+    gap: 24px;
+    padding-block: 48px;
+  }
+  .stub > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  h1 {
+    font-size: clamp(56px, 9vw, 96px);
+  }
+</style>
