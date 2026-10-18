@@ -1,18 +1,34 @@
 ---
-// Placeholder home page for step 1. Replaced by the real home page in step 4.
+// Placeholder home page: reads from the content collections to prove they
+// work. Replaced by the real home page layout in step 4.
+import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { site } from '../site.config';
+import { site } from '../lib/site';
+import { caseNumber, getCaseStudies } from '../lib/work';
+
+const home = await getEntry('home', 'home');
+if (!home) throw new Error('Missing src/content/pages/home.md');
+const { Content: Bio } = await render(home);
+const work = await getCaseStudies();
 ---
 
 <BaseLayout>
   <section class="container placeholder">
     <p class="eyebrow eyebrow--accent">Under construction</p>
-    <h1>AI is making products more powerful and more complicated. <em>I make sure people can still use them.</em></h1>
-    <p>This placeholder checks the design tokens, fonts, layout, header and footer.</p>
+    <h1>{home.data.headline} <em>{home.data.headlineAccent}</em></h1>
+    <div class="bio"><Bio /></div>
     <div class="placeholder__buttons">
       <a class="btn btn--primary" href={`mailto:${site.email}`}>Email me</a>
-      <a class="btn btn--secondary" href={site.resume}>Download resume ↓</a>
+      <a class="btn btn--secondary" href={site.resume}>{home.data.resumeLabel}</a>
     </div>
+    <h2 class="eyebrow">{home.data.workHeading} · {home.data.workYear}</h2>
+    <ol class="work-list">
+      {work.map((entry) => (
+        <li>
+          <span class="work-list__num">{caseNumber(entry.data.order)}</span> {entry.data.title}: {entry.data.summary}
+        </li>
+      ))}
+    </ol>
   </section>
 </BaseLayout>
 
@@ -29,9 +45,22 @@ import { site } from '../site.config';
   h1 em {
     color: var(--accent);
   }
+  .bio {
+    max-width: 60ch;
+  }
   .placeholder__buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+  }
+  .work-list {
+    display: grid;
+    gap: 12px;
+    padding: 0;
+    list-style: none;
+  }
+  .work-list__num {
+    font-family: var(--font-serif);
+    color: var(--accent);
   }
 </style>
