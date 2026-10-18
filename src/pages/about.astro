@@ -1,30 +1,132 @@
 ---
-// Placeholder About page: reads from about.md to prove the collection works.
-// Replaced by the real About layout in step 7.
-import { getEntry } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Picture from '../components/Picture.astro';
+import { site } from '../lib/site';
+import '../styles/prose.css';
 
 const about = await getEntry('about', 'about');
 if (!about) throw new Error('Missing src/content/pages/about.md');
+const { Content } = await render(about);
+const { title, heading, intro, photo, cardsHeading, cards, closing } = about.data;
 ---
 
-<BaseLayout title={about.data.title}>
-  <section class="container placeholder">
-    <h1>{about.data.heading}</h1>
-    <p>{about.data.intro}</p>
+<BaseLayout title={title} description={intro}>
+  <section class="container about-intro">
+    <Picture
+      class="about-intro__photo"
+      picture={photo}
+      aspect="4 / 5"
+      widths={[360, 720]}
+      sizes="(max-width: 760px) 240px, (max-width: 1024px) 280px, 360px"
+      eager
+    />
+    <div class="about-intro__text">
+      <h1>{heading}</h1>
+      <p>{intro}</p>
+    </div>
+  </section>
+
+  <div class="container about-body">
+    <Content />
+
+    <section class="md-section" aria-labelledby="outside-of-work">
+      <h2 id="outside-of-work">{cardsHeading}</h2>
+      <div class="md-section__body">
+        <ul class="cards">
+          {
+            cards.map((card) => (
+              <li class="card">
+                <h3>{card.title}</h3>
+                <p>{card.text}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <section class="container" aria-labelledby="closing-heading">
+    <div class="closing">
+      <h2 id="closing-heading">{closing.heading}</h2>
+      <div class="closing__actions">
+        <a class="btn btn--primary" href={`mailto:${site.email}`}>{closing.emailLabel}</a>
+        <a class="btn btn--secondary" href={site.resume}>{closing.resumeLabel}</a>
+      </div>
+    </div>
   </section>
 </BaseLayout>
 
 <style>
-  .placeholder {
+  .about-intro {
     display: grid;
-    gap: 24px;
-    padding-block: 64px;
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 64px;
+    align-items: end;
+    padding-block: 48px 72px;
   }
-  h1 {
-    font-size: clamp(44px, 7vw, 76px);
+  .about-intro h1 {
+    font-size: clamp(56px, 8vw, 88px);
+    line-height: 1;
   }
-  p {
-    max-width: 60ch;
+  .about-intro p {
+    max-width: 600px;
+    margin-top: 28px;
+    font-size: 19px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 0;
+    list-style: none;
+  }
+  .card {
+    margin: 0;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .card h3 {
+    margin: 0;
+    font-size: 26px;
+  }
+  .card p {
+    margin-top: 8px;
+    font-size: 16px;
+  }
+  .closing {
+    padding-block: 96px 24px;
+    border-top: 1px solid var(--border);
+  }
+  .closing h2 {
+    max-width: 14em;
+    font-size: clamp(40px, 6vw, 64px);
+  }
+  .closing__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 40px;
+  }
+  @media (max-width: 1024px) {
+    .about-intro {
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 48px;
+    }
+  }
+  @media (max-width: 760px) {
+    .about-intro {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+      padding-block: 24px 48px;
+    }
+    .about-intro :global(.about-intro__photo) {
+      max-width: 240px;
+    }
+    .closing {
+      padding-block: 64px 0;
+    }
   }
 </style>
