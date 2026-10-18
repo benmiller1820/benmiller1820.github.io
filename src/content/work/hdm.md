@@ -28,3 +28,48 @@ decision:
     - "Nav order: Home, Practice Areas, Attorneys, Contact."
     - "Assets built to be swappable."
 ---
+
+## The problem
+
+The firm's existing site no longer reflected the practice. [What was wrong.]
+
+For a small firm, a dated website quietly undermines trust.
+
+## Users and goals
+
+The site's job is credibility, not lead generation. Visitors:
+
+- **Prospective clients** confirming the firm is legitimate.
+- **Referring attorneys** confirming who's at the firm and how to reach them.
+- [Others.]
+
+## Constraints
+
+- **No calls to action.** Contact details are shown plainly, with no forms.
+- **Existing URLs had to keep working.**
+- **Outside IT controls the domain.**
+- **Limited partner time for reviews.**
+
+<!-- key-decision -->
+
+## Execution
+
+The work ran in defined steps. A step wasn't done until a smoke test of the new work and a full regression of everything built so far both passed.
+
+Firm communications were sequenced toward the end. [Why.]
+
+## What changed after feedback
+
+[2–3 examples.]
+
+## Results
+
+- **Launched:** [Launch date.]
+- **Page speed:** [Before → after.]
+- **From the partners:** [Partner quote.]
+
+## What I learned
+
+- The right requirement isn't always the best practice.
+- Lean is a feature.
+- [What I'd do differently.]
