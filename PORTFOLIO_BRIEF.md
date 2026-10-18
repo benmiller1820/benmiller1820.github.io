@@ -33,7 +33,7 @@ Dark editorial style. Use these as CSS custom properties.
 | `--text-muted` | `#B9B6AE` | Body copy, secondary text |
 | `--text-subtle` | `#8C8980` | Labels, eyebrows, footer |
 | `--border` | `#2A2B2F` | Dividers |
-| `--border-strong` | `#3A3B3F` | Button outlines, table header rule |
+| `--border-strong` | `#606165` | Button outlines, table header rule (was `#3A3B3F`; raised to 3:1 contrast on `--bg` in step 8 so outlines are visible to low-vision users) |
 | `--accent` | `#8AB4FF` | Accent text, links, numbers, primary button fill |
 | `--accent-hover` | `#B3CDFF` | Link hover |
 
