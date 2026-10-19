@@ -2,7 +2,8 @@
 heading: "Hi, I'm Ben."
 intro: "I grew up in Durham, studied cognitive science at Penn, and came back to the Triangle for my MBA at Duke. Today I'm an Associate Product Owner at Prometheus Group in Raleigh. [One or two sentences on what you're like to work with.]"
 photo:
-  alt: "[Photo of Ben]"
+  src: "../../assets/about/ben.jpg"
+  alt: "Ben Miller smiling, in a navy suit and tie"
 cardsHeading: "Outside of work"
 cards:
   - title: "Building"
