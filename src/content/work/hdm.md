@@ -31,9 +31,9 @@ decision:
 
 ## The problem
 
-The firm's existing site no longer reflected the practice. [What was wrong.]
+The firm's previous website gave visitors the information they needed, but it no longer reflected the quality and professionalism of the practice. The design felt dated, the content was hard to digest, and the experience didn't convey the depth of expertise clients and peers expect from an established law firm.
 
-For a small firm, a dated website quietly undermines trust.
+For a small firm, a dated website quietly undermines trust. The redesign had to represent the firm's reputation, history, and experience with a modern, polished presence: better structure, cleaner presentation, and a stronger first impression that matches the firm's standing in the legal community.
 
 ## Users and goals
 
