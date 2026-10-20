@@ -48,6 +48,7 @@ The site's job is credibility, not lead generation. Visitors:
 - **No calls to action.** Contact details are shown plainly, with no forms.
 - **Existing URLs had to keep working.**
 - **Outside IT controls the domain.**
+- **Firm email runs on the same domain.** Every address is @hdmllp.com, so pointing the domain at the new site couldn't disrupt email.
 - **Limited partner time for reviews.**
 
 <!-- key-decision -->
