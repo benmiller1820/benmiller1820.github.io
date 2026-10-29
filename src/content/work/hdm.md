@@ -10,7 +10,8 @@ timeline: "[Start month] – [launch month] 2026"
 status: "[Launched / awaiting firm sign-off]"
 liveUrl: "https://hdmllp.com (once launched)"
 thumbnail:
-  alt: "[HDM new home page]"
+  src: "../../assets/work/hdm/thumbnail.png"
+  alt: "Haywood, Denny & Miller, L.L.P. seal logo, established 1955"
 hero:
   alt: "[after: new home page]"
 screenshots:

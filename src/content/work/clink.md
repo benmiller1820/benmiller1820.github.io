@@ -10,7 +10,8 @@ timeline: "[Start month] 2026 – present"
 status: "[Prototype / beta / live]"
 liveUrl: "[Live app link]"
 thumbnail:
-  alt: "[Clink job submission screen]"
+  src: "../../assets/work/clink/thumbnail.png"
+  alt: "Clink mascot: a smiling hex nut in a blue cap and tool belt, holding a wrench and screwdriver"
 hero:
   alt: "[job submission]"
 screenshots:
