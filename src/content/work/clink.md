@@ -42,7 +42,7 @@ Gen Z homeowners who don't know home repair basics. They value ease, trust, safe
 
 On the other side are repair and service pros, who need enough information to quote a job before they'll engage.
 
-Clink started with a simple observation: if one of my siblings needed a plumber, they'd have no idea who to call. My generation expects the ease we get from other apps, and home repair still runs on phone calls and Google searches. [Who you talked to, roughly how many, and how. Where the "long intake forms are a pain point" insight came from.] Since building it, I've tested Clink with an HVAC company to see how the pro side holds up in a real business's workflow.
+Clink started with my own dryer repair. Getting it fixed was an awful experience, and it seemed just as painful for the technician who came out to fix it. If the process was that frustrating on both sides, the problem was the process, not the people. It also made me think: if one of my siblings needed a plumber, they'd have no idea who to call. My generation expects the ease we get from other apps, and home repair still runs on phone calls and Google searches. Since building it, I've tested Clink with an HVAC company to see how the pro side holds up in a real business's workflow.
 
 <!-- key-decision -->
 
