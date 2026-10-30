@@ -55,7 +55,7 @@ Clink started with my own dryer repair. Getting it fixed was an awful experience
 
 ## Execution
 
-A 9-step build plan with about 10 sub-steps each, plus living documents for scope, costs, progress, and open questions.
+A 10-step build plan with about 10 sub-steps each, plus living documents for scope, costs, progress, and open questions.
 
 After the foundation, data model, and sign-in, I built the homeowner side first, because the request defines the job everything else acts on. Pros could be onboarded by hand at first; homeowners had to be self-serve from day one. Then came the pro side and matching, chat and quotes, payments, text notifications, and admin tools, with the full visual design last, once the flows had settled. Each step shipped its screens together with its logic, so there was always something real to test.
 
