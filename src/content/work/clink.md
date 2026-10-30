@@ -6,9 +6,9 @@ summary: "A home repair marketplace that replaces long intake surveys with a con
 hook: "Booking a home repair should feel like texting a pro, not filling out a form."
 intro: "Clink connects Gen Z homeowners with trusted repair and service pros, matched by job type, location, and availability. I designed and built it from concept to working product."
 role: "Founder: strategy, design, build"
-timeline: "[Start month] 2026 – present"
-status: "[Prototype / beta / live]"
-liveUrl: "[Live app link]"
+timeline: "August 2026 – present"
+status: "Working prototype, pre-launch"
+liveUrl: "https://clink-dusky.vercel.app"
 thumbnail:
   src: "../../assets/work/clink/thumbnail.png"
   alt: "Clink mascot: a smiling hex nut in a blue cap and tool belt, holding a wrench and screwdriver"
@@ -23,11 +23,11 @@ decision:
   body: "I kept job submission requirements to a minimum and moved scoping into the chat between homeowner and pro. Instead of asking users questions they can't answer, Clink gets them talking to someone who can."
   table:
     - ["", "Typical booking app", "Clink"]
-    - ["Getting started", "Long survey with required fields", "A few basics: [job type, location, availability]"]
+    - ["Getting started", "Long survey with required fields", "A few basics: repair type, a few short questions, photos, timing, and address"]
     - ["Who figures out details", "The homeowner, upfront", "The pro, by asking in chat"]
-    - ["Quote and scheduling", "Often over text or email anyway", "In the chat, where the conversation already is"]
+    - ["Quote and scheduling", "Often over text or email anyway", "In the chat, which ends in a single quote with a price and appointment time"]
   why: "Required questions people can't answer are a major pain point, and most jobs get scoped over text regardless."
-  tradeoff: "Pros get less structured information upfront. [How you handle it.]"
+  tradeoff: "Pros get less structured information upfront. To make up for it, each repair type has its own short questions, either side can add photos, and pros see the full request before they accept or decline."
 ---
 
 ## The problem
@@ -42,31 +42,33 @@ Gen Z homeowners who don't know home repair basics. They value ease, trust, safe
 
 On the other side are repair and service pros, who need enough information to quote a job before they'll engage.
 
-[How you learned this.]
+Clink started with a simple observation: if one of my siblings needed a plumber, they'd have no idea who to call. My generation expects the ease we get from other apps, and home repair still runs on phone calls and Google searches. [Who you talked to, roughly how many, and how. Where the "long intake forms are a pain point" insight came from.] Since building it, I've tested Clink with an HVAC company to see how the pro side holds up in a real business's workflow.
 
 <!-- key-decision -->
 
 ## Other decisions
 
-- **Match on job type, location, and availability.** [Tradeoff.]
-- **Position on trust and dependability, not price.** [Tradeoff.]
-- **A friendly mascot built around a toolbox item.** [Tradeoff.]
-- **Iterating on the name to signal dependability.** [Tradeoff.]
+- **Match on job type, location, and availability.** Instead of sending each job to every pro and letting the first to claim it win, Clink offers it to eligible pros one at a time, in an order I set, and only during their business hours. That's slower, but I control who shows up. I designed a timer to pass jobs along from slow responders, then removed it: with a small group of pros, skipping a good one hurt more than it helped. Ratings wait until there are real jobs behind them, and price is left out on purpose.
+- **Position on trust and dependability, not price.** I approve every pro personally, all payments run through the app, and a homeowner can switch pros even after booking. The cost is a smaller group of pros I recruit myself, slower matching, and no price shopping. For homeowners who want ease and confidence more than the lowest quote, that's the right trade.
+- **A friendly mascot built around a toolbox item.** Clink is a hex-nut handyman: a calm, capable friend for the moment something at home breaks. [Why a character felt right over a wordmark.] To keep him from reading as unprofessional, red is reserved for real problems, legal text is never reworded for personality, and the pro side is plainer, because for pros Clink is a business tool.
+- **Iterating on the name to signal dependability.** My early favorite, "Tinker," sounded friendly but suggested fiddling around rather than getting the job done right. [Why Clink won out, and other names you tried.]
 
 ## Execution
 
 A 9-step build plan with about 10 sub-steps each, plus living documents for scope, costs, progress, and open questions.
 
-[Sequencing logic.] [One deferred feature and why.]
+After the foundation, data model, and sign-in, I built the homeowner side first, because the request defines the job everything else acts on. Pros could be onboarded by hand at first; homeowners had to be self-serve from day one. Then came the pro side and matching, chat and quotes, payments, text notifications, and admin tools, with the full visual design last, once the flows had settled. Each step shipped its screens together with its logic, so there was always something real to test.
+
+I deliberately put off ratings and reviews. They need a track record of completed jobs to mean anything, and early on I vet every pro personally anyway. Building them first would have added complexity without adding trust.
 
 ## Results
 
-- **Built:** [What works end to end.]
-- **Tested:** [Feedback so far.]
-- **Next:** [Next milestone.]
+- **Built:** The full job flow works on the live app. A homeowner submits a request with photos, the top-ranked pro gets a text alert, they chat, the pro sends a quote, and the homeowner books it. When the job is done, the homeowner is charged and the pro is paid automatically. Cancellations, refunds, switching pros, and an admin panel work too.
+- **Tested:** An HVAC company tried the pro side. They saw a real gap Clink can fill, and their biggest request was a CRM integration, so new jobs show up where they already manage their work. Larger pro businesses need Clink to plug into their tools; smaller ones may be happy in Clink's own dashboard.
+- **Next:** More testing to learn how many pros need a CRM integration and whether the built-in dashboard works for smaller ones, plus feedback from homeowners. Before launch: production infrastructure, email verification for pros, and text-messaging compliance.
 
 ## What I learned
 
 - Design for what users know, not what the system wants.
 - Copy the behavior that already works.
-- [What I'd do differently.]
+- Get the other side of the marketplace using it sooner. Pros aren't one group, and earlier conversations would have shown me that before I built one dashboard for all of them.
