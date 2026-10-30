@@ -3,11 +3,11 @@ order: 2
 title: "Haywood, Denny & Miller"
 tag: "Client project · Product owner & builder"
 summary: "A lean, credibility-first website for a Durham law firm, designed around what the firm actually needed rather than industry convention."
-hook: '[One-line hook, e.g. "A law firm website built for trust, not leads."]'
+hook: "A law firm website built for trust, not leads."
 intro: "I redesigned and rebuilt the website for Haywood, Denny & Miller, L.L.P., a Durham law firm, and I own its maintenance after launch."
 role: "Sole product owner, designer, and builder"
-timeline: "[Start month] – [launch month] 2026"
-status: "[Launched / awaiting firm sign-off]"
+timeline: "October 2026 – present"
+status: "In final review with the partners"
 liveUrl: "https://hdmllp.com (once launched)"
 thumbnail:
   src: "../../assets/work/hdm/thumbnail.png"
@@ -42,7 +42,9 @@ The site's job is credibility, not lead generation. Visitors:
 
 - **Prospective clients** confirming the firm is legitimate.
 - **Referring attorneys** confirming who's at the firm and how to reach them.
-- [Others.]
+- **Insurance carriers and claims professionals** checking who's handling their file.
+- **Opposing counsel** looking up the attorney on the other side.
+- **Existing clients** who need the address, phone, or fax number.
 
 ## Constraints
 
@@ -56,22 +58,26 @@ The site's job is credibility, not lead generation. Visitors:
 
 ## Execution
 
-The work ran in defined steps. A step wasn't done until a smoke test of the new work and a full regression of everything built so far both passed.
+I built the site from scratch with Astro as a static site: no WordPress, database, or CMS. Attorneys, practice areas, and clients live in simple data files. It's hosted on Netlify and deploys automatically from GitHub. I built it with Claude Code, acting as product lead: I wrote the requirements, set the guardrails, and reviewed every change.
 
-Firm communications were sequenced toward the end. [Why.]
+The work ran in defined steps. A step wasn't done until a smoke test of the new work and a full regression of everything built so far both passed, with automated tests checking every page at phone, tablet, and desktop widths.
+
+The new site keeps the old page addresses, so existing links and bookmarks keep working. Because email runs on the same domain, the switch changes only the two website records. Before it, I'll confirm with the firm's IT vendor where email is hosted and record every DNS record as a rollback plan; after it, I'll test email in both directions.
 
 ## What changed after feedback
 
-[2–3 examples.]
+Early on, the firm told me they didn't want the site to generate leads. Most of their work comes from insurance carriers and referrals, so the site's job is credibility. I took out every contact form, "schedule a consultation" button, and pop-up, and listed contact details only as reference information.
+
+I also flagged claims that need the firm's approval before launch, like the firm-wide "AV Rated" line, since the current site attributes that rating to only one partner.
 
 ## Results
 
-- **Launched:** [Launch date.]
-- **Page speed:** [Before → after.]
-- **From the partners:** [Partner quote.]
+- **Page speed:** Google PageSpeed Insights performance went from 71 to 100 on mobile and from 80 to 100 on desktop (measured October 2026).
+- **Status:** In final review with the partners. The new site replaces the current one at hdmllp.com after their written sign-off.
 
 ## What I learned
 
 - The right requirement isn't always the best practice.
 - Lean is a feature.
-- [What I'd do differently.]
+- Settle logistics on day one: a single IT contact, and photos with clear usage rights. I ended up with a building photo of unknown origin and attorney portraits recovered from a 2018 version of the site.
+- Show a rough preview early. I held review until the site felt finished, and an earlier look would have surfaced the partners' decisions sooner.
