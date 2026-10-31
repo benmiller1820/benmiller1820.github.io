@@ -13,9 +13,11 @@ thumbnail:
   src: "../../assets/work/clink/thumbnail.png"
   alt: "Clink mascot: a smiling hex nut in a blue cap and tool belt, holding a wrench and screwdriver"
 hero:
-  alt: "[job submission]"
+  src: "../../assets/work/clink/hero.png"
+  alt: "Clink job submission, Details step for a plumbing request: tap-to-select answers for the issue type and whether water is actively leaking, plus an optional description"
 screenshots:
-  - alt: "[chat]"
+  - src: "../../assets/work/clink/chat.png"
+    alt: "Clink chat between a homeowner and a vetted plumber: the pro suggests a temporary fix, then sends a $145 quote with an appointment time and an Accept quote button"
   - src: "../../assets/work/clink/brand.png"
     alt: "Clink mascot in three poses: holding a wrench and screwdriver, waving, and a head-and-shoulders icon"
 decision:

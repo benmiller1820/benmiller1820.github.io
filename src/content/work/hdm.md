@@ -13,10 +13,13 @@ thumbnail:
   src: "../../assets/work/hdm/thumbnail.png"
   alt: "Haywood, Denny & Miller, L.L.P. seal logo, established 1955"
 hero:
-  alt: "[after: new home page]"
+  src: "../../assets/work/hdm/hero.png"
+  alt: "The new Haywood, Denny & Miller home page, with the firm's navy seal, name and navigation above the headline \"Experienced counsel in North Carolina's courts for more than seventy years.\""
 screenshots:
-  - alt: "[before: old home page]"
-  - alt: "[after: new home page]"
+  - src: "../../assets/work/hdm/before.png"
+    alt: "The previous hdmllp.com home page: a blue firm name, a photo of downtown Durham and two paragraphs of dense text"
+  - src: "../../assets/work/hdm/after.png"
+    alt: "The new home page: the firm's seal and name on cream, a short navigation bar, and a navy headline section"
 decision:
   eyebrow: "Key decision"
   headline: "Lean is a feature"
