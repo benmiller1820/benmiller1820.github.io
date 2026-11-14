@@ -1,6 +1,6 @@
 ---
 heading: "Hi, I'm Ben."
-intro: "I grew up in Durham, studied cognitive science at Penn, and came back to the Triangle for my MBA at Duke. Today I'm an Associate Product Owner at Prometheus Group in Raleigh. I enjoy working with teams to bring structure to ambiguity and build solutions that genuinely help customers."
+intro: "I grew up in Durham, studied Cognitive Science at Penn, and returned to the Triangle for my MBA at Duke. Today I work in product management at Prometheus Group, where I help shape enterprise software used by some of the world's largest industrial organizations. I enjoy bringing structure to ambiguity, working across teams, and building products that solve real customer problems."
 photo:
   src: "../../assets/about/ben.jpg"
   alt: "Ben Miller smiling, in a navy suit and tie"

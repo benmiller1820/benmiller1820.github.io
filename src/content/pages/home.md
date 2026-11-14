@@ -7,4 +7,4 @@ workHeading: "Selected work"
 workYear: "2026"
 ---
 
-I'm an Associate Product Owner at Prometheus Group in Raleigh, where I own the Web Planning & Scheduling application and lead product operations across all of our products. Outside work, I build products of my own, from a home repair marketplace to a law firm's website. I hold an MBA from Duke's Fuqua School of Business and a BA in Cognitive Science from Penn.
+I'm a product leader at Prometheus Group in Raleigh, where I oversee product delivery across our SAP suite and lead feature development for the Planning & Scheduling application. Outside of work, I enjoy building products of my own, from a home maintenance management platform to websites for local businesses. I hold an MBA from Duke's Fuqua School of Business and a BA in Cognitive Science from Penn.

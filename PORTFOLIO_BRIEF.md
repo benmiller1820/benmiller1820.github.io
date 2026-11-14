@@ -94,7 +94,7 @@ Bracketed text like `[this]` is a placeholder Ben will fill in. Keep the bracket
 ### Home
 **Headline:** AI is making products more powerful and more complicated. *I make sure people can still use them.*
 
-**Bio:** I'm an Associate Product Owner at Prometheus Group in Raleigh, where I own the Web Planning & Scheduling application and lead product operations across all of our products. Outside work, I build products of my own, from a home repair marketplace to a law firm's website. I hold an MBA from Duke's Fuqua School of Business and a BA in Cognitive Science from Penn.
+**Bio:** I'm a product leader at Prometheus Group in Raleigh, where I oversee product delivery across our SAP suite and lead feature development for the Planning & Scheduling application. Outside of work, I enjoy building products of my own, from a home maintenance management platform to websites for local businesses. I hold an MBA from Duke's Fuqua School of Business and a BA in Cognitive Science from Penn.
 
 ### Case study: Clink (`src/content/work/clink.md`)
 
@@ -153,7 +153,7 @@ Sections:
 
 ### About (`src/content/pages/about.md`)
 - **Intro heading:** Hi, I'm Ben.
-- **Intro:** I grew up in Durham, studied cognitive science at Penn, and came back to the Triangle for my MBA at Duke. Today I'm an Associate Product Owner at Prometheus Group in Raleigh. [One or two sentences on what you're like to work with.]
+- **Intro:** I grew up in Durham, studied Cognitive Science at Penn, and returned to the Triangle for my MBA at Duke. Today I work in product management at Prometheus Group, where I help shape enterprise software used by some of the world's largest industrial organizations. I enjoy bringing structure to ambiguity, working across teams, and building products that solve real customer problems.
 - **How I got here:** Cognitive science taught me to look at how people actually think, not how we assume they do. [What drew you to it and pointed you toward product.] [How you went from Fuqua into product.]
 - **What I believe:**
   - Pull quote: AI is making products more powerful and more complicated. Someone has to make sure people can keep up.
